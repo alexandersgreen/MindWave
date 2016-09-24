@@ -7,6 +7,9 @@ import MindWaveConnection
 import Graphics.Gloss
 import Graphics.Gloss.Interface.IO.Animate
 
+-- | An example usage of the MindWaveConnection module, that creates an IORef, 
+--   forks off a thread for reading from the MindWave, and then uses this thread to
+--   generate "images" representing the continaully updating MindWaveInfo 
 main :: IO ()
 main = do
  ref <- newIORef initialMindWaveInfo
