@@ -19,10 +19,16 @@ main = do
   disconnect
   print "End of Program"
 
+-- | Read the MindWaveInfo from the IORef, and generate an "image".
+--   The Float argument is unused, as we can just access the latest MindWaveInfo
+--   for each frame...
 bars :: IORef MindWaveInfo -> Float -> IO Picture
 bars ref _ = do
  mwi <- readIORef ref
  return $ generateBars mwi
 
+-- | A holding place for the function that generates "images" from the MindWaveInfo.
+--   Currently, as a proof of concept, this just produces an Picture containing a 
+--   printed printed text String.
 generateBars :: MindWaveInfo -> Picture
 generateBars mwi = Text $ raw_value mwi
